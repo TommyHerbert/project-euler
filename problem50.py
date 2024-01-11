@@ -28,12 +28,20 @@ class SequenceFinder:
     def solve(self):
         primes = get_primes(self.ceiling)
         state = State()
+        state = self.set_initial_sequence(state, primes)
         while self.searching(state, primes):
             if self.fits(state):
                 state = self.shift(state, primes)
             else:
                 state = self.shrink(state, primes)
         return state.total
+
+    def set_initial_sequence(self, state, primes):
+        while self.fits(state):
+            state.total += primes[state.length]
+            state.length += 1
+        state.left_total = state.total
+        return state
 
     def searching(self, state, primes):
         return state.total not in primes
