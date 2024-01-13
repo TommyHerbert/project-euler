@@ -64,6 +64,6 @@ class SequenceFinder:
     def shrink(self, old_state, primes):
         new_state = State()
         new_state.length = old_state.length - 1
-        new_state.total = old_state.left_total - primes[old_state.length] - primes[new_state.length]
+        new_state.total = old_state.left_total - primes[old_state.length - 1]
         new_state.left_total = new_state.total
         return new_state
