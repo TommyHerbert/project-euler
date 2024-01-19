@@ -57,7 +57,7 @@ class SequenceFinder:
             new_state.length -= 1
         new_state.total = old_state.total - primes[old_state.start]
         if old_state.start != 0:
-            new_state.total += primes[new_state.start + new_state.length]
+            new_state.total += primes[new_state.start + new_state.length - 1]
         new_state.left_total = old_state.left_total
         return new_state
 
