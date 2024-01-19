@@ -30,6 +30,7 @@ class SequenceFinder:
         state = State()
         state = self.set_initial_sequence(state, primes)
         while self.searching(state, primes):
+            print(f'{state.start}, {state.length}, {state.total}, {state.left_total}')
             if self.fits(state):
                 state = self.shift(state, primes)
             else:
